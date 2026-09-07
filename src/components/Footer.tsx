@@ -39,9 +39,8 @@ export function Footer() {
       <div aria-hidden="true" className="absolute inset-0 bg-teal/45 backdrop-blur-[2px]" />
       <ToranBorder className="relative h-4 w-full text-gold/50" count={40} />
 
-      {/* mandala texture + optional PNG motif */}
+      {/* mandala only — no texture block, so the footer blends into the gradient */}
       <MandalaLine className="pointer-events-none absolute -bottom-40 -right-32 h-[420px] w-[420px] text-ivory/[0.06] animate-spin-slower" />
-      <div className="pointer-events-none absolute inset-0 texture-bandhani opacity-40" />
       <MotifPng
         src={ART.motif.diyaRow}
         className="absolute bottom-0 left-1/2 h-20 w-[520px] -translate-x-1/2 opacity-70"

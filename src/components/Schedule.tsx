@@ -18,7 +18,6 @@ const SLOTS = [
 export function Schedule() {
   return (
     <section id="schedule" className="relative overflow-hidden py-24 sm:py-32">
-      <div aria-hidden="true" className="absolute inset-0 texture-mirrorwork opacity-50" />
       <MotifPng
         src={ART.motif.diyaRow}
         className="absolute right-0 top-10 h-24 w-72 opacity-40"

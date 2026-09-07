@@ -1,13 +1,8 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { EASE_OUT_SOFT, inView, riseIn, stagger } from '@/lib/motion';
-import {
-  GALLERY_CATEGORIES,
-  GALLERY_FILM,
-  GALLERY_ITEMS,
-  type GalleryCategory,
-  type GalleryItem,
-} from '@/data/gallery';
+import { EASE_OUT_SOFT, inView } from '@/lib/motion';
+import { GALLERY_FILM, GALLERY_ITEMS, type GalleryItem } from '@/data/gallery';
+import { GujaratiQuote } from '@/components/InvitationBand';
 import { MicroBrand } from '@/components/ui/Typography';
 import { DiyaIcon, MandalaLine, RangoliCorner, ToranBorder } from '@/components/ornaments/Ornaments';
 
@@ -367,7 +362,6 @@ export function GalleryWall() {
 
   return (
     <section className="relative overflow-hidden pb-24 pt-12 sm:pb-28" aria-label="Gallery">
-      <div aria-hidden="true" className="absolute inset-0 texture-mirrorwork opacity-40" />
 
       <div className="container-editorial relative">
         {/* ===== toran strands flank the mandala, left and right ===== */}
@@ -388,6 +382,13 @@ export function GalleryWall() {
                 <CentreFilm />
               </div>
             </div>
+
+            {/* fills the quiet stretch below the film */}
+            <GujaratiQuote
+              text="એ હાલો સૌ ગરબા રમવા હાલો"
+              translation="Come along, everyone — let’s go play garba."
+              className="mt-10"
+            />
           </div>
 
           <AnimatePresence mode="popLayout">
@@ -413,7 +414,7 @@ export function GalleryWall() {
         <div className="mt-16 flex items-center justify-center gap-3 text-gold/70">
           <DiyaIcon className="h-5 w-5 animate-diya-glow" />
           <p className="text-[11px] uppercase tracking-[0.24em]">
-            More from 24 October 2026
+            2025 Highlights · More after 24 October 2026
           </p>
           <DiyaIcon className="h-5 w-5 animate-diya-glow" />
         </div>

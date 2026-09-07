@@ -1,7 +1,7 @@
 import { TEAM_FOLDERS } from '@/data/teamManifest';
 
 /**
- * NUV Yuva 2026 organising committee.
+ * NUV Khelaiya 2026 organising committee.
  *
  * Everything here is derived from the photographs themselves. Names come from
  * the source filenames, so what you see on screen is exactly what is written on
@@ -77,7 +77,7 @@ export const initialsOf = (name: string) =>
 export const TESTIMONIALS = [
   {
     quote:
-      'NUV Yuva 2024 was an unforgettable experience! The energy, the performances, and the overall vibe were absolutely electric. Can’t wait for this year!',
-    author: 'Attendee, NUV Yuva 2024',
+      'NUV Khelaiya 2025 was an unforgettable experience! The energy, the performances, and the overall vibe were absolutely electric. Can’t wait for this year!',
+    author: 'Attendee, NUV Khelaiya 2025',
   },
 ];

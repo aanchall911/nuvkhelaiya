@@ -53,7 +53,7 @@ function LeadCard({ shot, index }: { shot: Shot; index: number }) {
           <div className="relative aspect-[3/4] overflow-hidden bg-plum-deep/60 ring-1 ring-gold/25">
             <img
               src={shot.src}
-              alt={shot.name ?? 'Committee lead at NUV Yuva 2026'}
+              alt={shot.name ?? 'Committee lead at NUV Khelaiya 2026'}
               loading="lazy"
               decoding="async"
               className="h-full w-full object-cover object-top transition-transform duration-[1100ms] ease-out group-hover:scale-[1.08]"
@@ -199,7 +199,7 @@ function TogetherShot({ photo, role }: { photo: string; role: string }) {
           >
             <motion.img
               src={photo}
-              alt={`${teamTitle(role)} at NUV Yuva 2026`}
+              alt={`${teamTitle(role)} at NUV Khelaiya 2026`}
               loading="lazy"
               decoding="async"
               initial={{ scale: 1.1 }}
@@ -310,7 +310,6 @@ export function TeamGrid() {
 
   return (
     <section className="relative overflow-hidden pb-20 pt-12 sm:pb-24" aria-label="Committee members">
-      <div aria-hidden="true" className="absolute inset-0 texture-bandhani opacity-35" />
       <MandalaLine className="pointer-events-none absolute -right-40 top-1/3 h-[420px] w-[420px] text-gold/12 animate-spin-slower" />
 
       {/* folk instruments down both sides */}

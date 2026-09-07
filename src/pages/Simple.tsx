@@ -1,5 +1,6 @@
 import { PageHeader } from '@/components/PageHeader';
 import { GalleryWall } from '@/components/GalleryWall';
+import { SponsorToran } from '@/components/SponsorToran';
 import { TeamGrid } from '@/components/TeamGrid';
 import { StageNext } from '@/pages/StageNext';
 
@@ -12,15 +13,7 @@ export function Sponsors() {
         gujarati="સાથ અને સહકાર"
         intro="NUV Khelaiya is made possible by partners who believe in celebrating culture at scale."
       />
-      <StageNext
-        title="Tiered Sponsor Showcase"
-        items={[
-          'Title & Presenting Partner spotlights',
-          'Gold, Silver and Community partner grids',
-          'Aspect-safe logo plates — no distortion',
-          'Gold ornamental tier dividers',
-        ]}
-      />
+      <SponsorToran />
     </>
   );
 }
@@ -32,7 +25,7 @@ export function Team() {
         eyebrow="Organising Team"
         title="Committee Members"
         gujarati="આયોજક ટીમ"
-        intro="Meet the dedicated team behind NUV Yuva 2026 — students and volunteers who build the celebration from the ground up."
+        intro="Meet the dedicated team behind NUV Khelaiya 2026 — students and volunteers who build the celebration from the ground up."
       />
       <TeamGrid />
     </>
@@ -43,10 +36,10 @@ export function Gallery() {
   return (
     <>
       <PageHeader
-        eyebrow="Gallery"
+        eyebrow="2025 Highlights"
         title="Moments From the Ground"
         gujarati="યાદગાર ક્ષણો"
-        intro="Garba, Dandiya, people and culture — the memories NUV Khelaiya 2025 left behind."
+        intro="Garba, Dandiya, people and culture — highlights from NUV Khelaiya 2025."
       />
       <GalleryWall />
     </>

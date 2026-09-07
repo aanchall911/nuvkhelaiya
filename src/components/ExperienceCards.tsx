@@ -75,7 +75,6 @@ export function ExperienceCards() {
       className="relative overflow-hidden py-24 text-ivory sm:py-28"
       aria-labelledby="experience-heading"
     >
-      <div aria-hidden="true" className="absolute inset-0 texture-bandhani opacity-40" />
 
       <div className="container-editorial relative">
         <div id="experience-heading">

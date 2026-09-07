@@ -1,13 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  motion,
-  useMotionTemplate,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { riseIn, stagger, textRevealItem } from '@/lib/motion';
 import { ART, MICRO_BRAND } from '@/lib/assets';
 import { EVENT } from '@/lib/event';
@@ -31,13 +24,6 @@ export function Hero() {
   });
   const p = useSpring(scrollYProgress, { stiffness: 110, damping: 28, mass: 0.4 });
 
-  /* ---- background: slow zoom + shifting grade ---- */
-  const bgScale = useTransform(p, [0, 1], [1, 1.32]);
-  const bright = useTransform(p, [0, 0.5, 1], [1, 1.1, 1.18]);
-  const contrast = useTransform(p, [0, 1], [1, 1.22]);
-  const sat = useTransform(p, [0, 1], [0.92, 1.28]);
-  const bgFilter = useMotionTemplate`brightness(${bright}) contrast(${contrast}) saturate(${sat})`;
-
   /* ---- festival lighting reveal ---- */
   const beamOpacity = useTransform(p, [0.06, 0.42, 1], [0, 1, 0.85]);
   const beamSpread = useTransform(p, [0.06, 0.5], [0.6, 1]);
@@ -57,7 +43,9 @@ export function Hero() {
   /* ---- ornament reactions ---- */
   const mandalaScale = useTransform(p, [0, 1], [1, 1.45]);
   const mandalaOpacity = useTransform(p, [0, 0.5, 1], [1, 0.75, 0.35]);
-  const dancerY = useTransform(p, [0, 1], ['0%', '38%']);
+  /* the dancers stay planted on the ground and fade, rather than sliding down
+     and getting sliced by the section's bottom edge */
+  const dancerOpacity = useTransform(p, [0, 0.55, 0.85], [1, 0.85, 0]);
   const scrollHint = useTransform(p, [0, 0.08], [1, 0]);
 
   const still = reduce ? {} : undefined;
@@ -71,14 +59,9 @@ export function Hero() {
         } flex h-[100svh] items-center overflow-hidden`}
         aria-labelledby="hero-title"
       >
-        {/* ---- depth wash that zooms and grades with the scroll ---- */}
-        <motion.div
-          aria-hidden="true"
-          style={reduce ? still : { scale: bgScale, filter: bgFilter }}
-          className="absolute inset-0 origin-center"
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_12%,rgba(254,191,74,0.14)_0%,rgba(74,12,50,0.34)_46%,rgba(15,77,91,0.6)_100%)]" />
-        </motion.div>
+        {/* No local background wash here. The site-wide fixed gradient is the
+            only background, so the hero and the section below it match exactly
+            and no seam appears at the hero's bottom edge. */}
 
         {/* ---- festival lighting beams ---- */}
         <motion.div
@@ -141,7 +124,7 @@ export function Hero() {
         />
 
         {/* ---- garba dancers, sinking as the hero plays out ---- */}
-        <motion.div style={reduce ? still : { y: dancerY }} className="absolute inset-0">
+        <motion.div style={reduce ? still : { opacity: dancerOpacity }} className="absolute inset-0">
           <MotifPng
             src={ART.motif.garbaDancer}
             label="Garba dancer in traditional chaniya choli"

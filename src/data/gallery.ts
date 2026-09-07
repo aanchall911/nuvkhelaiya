@@ -16,7 +16,7 @@ const g = '/assets/gallery';
 export const GALLERY_FILM = {
   src: `${g}/nk25-film.mp4`,
   poster: `${g}/nk25-03.jpg`,
-  title: 'NUV Khelaiya 2025',
+  title: 'NUV Khelaiya 2025 Highlights',
   caption: 'From endless garba rounds to countless memories.',
 };
 

@@ -343,3 +343,42 @@ html.lenis body {
     opacity: 0;
   }
 }
+
+/* ===================================================================== */
+/* Toran ribbon — a continuous right-to-left marquee                      */
+/* ===================================================================== */
+@layer components {
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-rtl var(--marquee-duration, 34s) linear infinite;
+  }
+  .marquee-paused:hover .marquee-track,
+  .marquee-track:focus-within {
+    animation-play-state: paused;
+  }
+  /* fade the ribbon into the background at both ends */
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+}
+
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* the track holds two copies of the list, so half a loop is seamless */
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+}

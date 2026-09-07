@@ -1,16 +1,9 @@
 import { motion } from 'framer-motion';
 import { EASE_OUT_SOFT, inView, riseIn, stagger } from '@/lib/motion';
 import { ART } from '@/lib/assets';
-import { GALLERY_FILM } from '@/data/gallery';
 import { MotifPng } from '@/components/media/MotifPng';
 import { Eyebrow, TextReveal } from '@/components/ui/Typography';
-import {
-  DiyaIcon,
-  MandalaLine,
-  OrnamentDivider,
-  RangoliCorner,
-  ToranBorder,
-} from '@/components/ornaments/Ornaments';
+import { DiyaIcon, MandalaLine, OrnamentDivider } from '@/components/ornaments/Ornaments';
 
 const STATS = [
   { value: '1', label: 'Night' },
@@ -21,8 +14,8 @@ const STATS = [
 export function EventIntro() {
   return (
     <section id="intro" className="relative overflow-hidden py-24 sm:py-32">
-      {/* textile pattern only — the site-wide gradient shows through */}
-      <div aria-hidden="true" className="absolute inset-0 texture-patola opacity-40" />
+      {/* no section-level texture — the site-wide gradient carries it, so no
+          rectangular band appears where one section meets the next */}
       <MandalaLine className="pointer-events-none absolute -left-40 top-10 h-[380px] w-[380px] text-gold/20 animate-spin-slower" />
       <MotifPng
         src={ART.motif.floral}
