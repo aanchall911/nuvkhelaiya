@@ -1,0 +1,345 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --plum: #5f1040;
+    --plum-deep: #4a0c32;
+    --saffron: #febf4a;
+    --teal: #0f4d5b;
+    --ivory: #fff8e8;
+    --cream: #f8ebd0;
+    --gold: #c99a3d;
+    --burgundy: #7a183f;
+    --muted-teal: #39727a;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    /* the site-wide signature gradient sits behind everything (see Layout) */
+    @apply bg-plum-deep font-sans text-ivory antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--saffron);
+    color: var(--plum-deep);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  /* Visible, culturally-tinted focus ring for keyboard users */
+  :focus-visible {
+    outline: 2px solid var(--saffron);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--cream);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 999px;
+  }
+}
+
+@layer components {
+  /* ---------- Signature gradient surfaces ---------- */
+  .bg-signature-animated {
+    background: linear-gradient(
+      110deg,
+      #4a0c32 0%,
+      #5f1040 22%,
+      #7a183f 38%,
+      #febf4a 55%,
+      #39727a 74%,
+      #0f4d5b 100%
+    );
+    background-size: 220% 220%;
+    @apply animate-gradient-drift;
+  }
+
+  .text-gradient-signature {
+    background: linear-gradient(90deg, #febf4a 0%, #e3c078 45%, #c99a3d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ---------- Paper / textile textures ---------- */
+  .texture-paper {
+    position: relative;
+  }
+  .texture-paper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: radial-gradient(rgba(201, 154, 61, 0.14) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+
+  /* Bandhani-inspired dot field */
+  .texture-bandhani {
+    background-image:
+      radial-gradient(circle at 50% 50%, rgba(255, 248, 232, 0.16) 1.4px, transparent 1.6px),
+      radial-gradient(circle at 50% 50%, rgba(254, 191, 74, 0.1) 1.1px, transparent 1.3px);
+    background-size:
+      26px 26px,
+      26px 26px;
+    background-position:
+      0 0,
+      13px 13px;
+  }
+
+  /* Patola / Ajrakh-inspired diamond lattice */
+  .texture-patola {
+    background-image:
+      linear-gradient(45deg, rgba(201, 154, 61, 0.09) 25%, transparent 25%, transparent 75%, rgba(201, 154, 61, 0.09) 75%),
+      linear-gradient(45deg, rgba(201, 154, 61, 0.09) 25%, transparent 25%, transparent 75%, rgba(201, 154, 61, 0.09) 75%);
+    background-size: 34px 34px;
+    background-position:
+      0 0,
+      17px 17px;
+  }
+
+  /* Mirror-work speck field */
+  .texture-mirrorwork {
+    background-image: radial-gradient(circle, rgba(254, 191, 74, 0.5) 0.8px, transparent 1px);
+    background-size: 42px 42px;
+  }
+
+  /* ---------- Cards that feel like printed invitations ---------- */
+  .card-invitation {
+    @apply relative rounded-[6px] border border-gold/35 bg-ivory shadow-card;
+    background-image: radial-gradient(rgba(201, 154, 61, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .hairline-gold {
+    @apply h-px w-full bg-gold-line;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 px-7 py-3 text-[11px]
+      font-medium uppercase tracking-[0.22em] transition-all duration-300;
+  }
+  .btn-primary {
+    @apply btn bg-saffron text-plum-deep shadow-[0_10px_30px_-12px_rgba(254,191,74,0.9)]
+      hover:bg-saffron-deep hover:shadow-[0_16px_40px_-12px_rgba(254,191,74,0.95)] active:translate-y-px;
+  }
+  .btn-outline {
+    @apply btn border border-gold/70 text-ivory hover:border-saffron hover:bg-saffron/10 active:translate-y-px;
+  }
+  .btn-ink {
+    @apply btn border border-plum/25 text-plum hover:border-plum hover:bg-plum hover:text-ivory active:translate-y-px;
+  }
+
+  .eyebrow {
+    @apply text-[10px] font-medium uppercase tracking-[0.34em] sm:text-[11px];
+  }
+}
+
+@layer utilities {
+  .container-editorial {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-12;
+  }
+
+  /* PNG artwork helpers ------------------------------------------------ */
+  /* Warm diya-like halo behind transparent PNG motifs */
+  .png-halo {
+    filter: drop-shadow(0 0 22px rgba(254, 191, 74, 0.38))
+      drop-shadow(0 14px 26px rgba(74, 12, 50, 0.35));
+  }
+  .png-halo-soft {
+    filter: drop-shadow(0 10px 24px rgba(74, 12, 50, 0.28));
+  }
+  /* Turns a flat dark PNG motif into an antique-gold ornament */
+  .png-gold-ink {
+    filter: sepia(1) saturate(2.4) hue-rotate(-8deg) brightness(1.05);
+  }
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  }
+
+  .will-animate {
+    will-change: transform, opacity;
+  }
+}
+
+/* Respect users who ask for less motion --------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ===================================================================== */
+/* Lenis smooth scroll                                                    */
+/* ===================================================================== */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ===================================================================== */
+/* Custom cursor — hide the native one only on precise pointers           */
+/* ===================================================================== */
+@media (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+  /* keep the caret usable in form fields */
+  html.has-custom-cursor input,
+  html.has-custom-cursor textarea,
+  html.has-custom-cursor select {
+    cursor: auto !important;
+  }
+}
+
+@layer components {
+  /* Moving metallic sheen across gold typography */
+  .text-shimmer-gold {
+    background: linear-gradient(
+      100deg,
+      #c99a3d 0%,
+      #e3c078 22%,
+      #fff3d0 38%,
+      #febf4a 52%,
+      #c99a3d 74%,
+      #e3c078 100%
+    );
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer-sweep 7s linear infinite;
+  }
+
+  /* Continuously travelling scanner beam, for the QR/verification UI */
+  .laser-beam {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #febf4a, transparent);
+    box-shadow:
+      0 0 18px 3px rgba(254, 191, 74, 0.55),
+      0 0 40px 8px rgba(254, 191, 74, 0.25);
+    animation: laser-travel 2.6s ease-in-out infinite;
+  }
+
+  /* Expanding-and-fading status ring */
+  .pulse-ring {
+    position: relative;
+  }
+  .pulse-ring::before,
+  .pulse-ring::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    border: 1px solid currentColor;
+    animation: pulse-ring 2.8s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+  }
+  .pulse-ring::after {
+    animation-delay: 1.4s;
+  }
+
+  /* Festival light beams fanning out from above */
+  .festival-beam {
+    position: absolute;
+    top: -18%;
+    transform-origin: 50% 0%;
+    width: 22vmax;
+    height: 130vh;
+    background: linear-gradient(
+      to bottom,
+      rgba(254, 191, 74, 0.34) 0%,
+      rgba(254, 191, 74, 0.12) 38%,
+      transparent 78%
+    );
+    filter: blur(26px);
+  }
+
+  /* Holographic sheen for the pass card */
+  .holo-sheen {
+    background: linear-gradient(
+      115deg,
+      transparent 24%,
+      rgba(255, 248, 232, 0.28) 42%,
+      rgba(254, 191, 74, 0.36) 50%,
+      rgba(255, 248, 232, 0.28) 58%,
+      transparent 76%
+    );
+    background-size: 220% 220%;
+  }
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    background-position: 220% 50%;
+  }
+  100% {
+    background-position: -60% 50%;
+  }
+}
+
+@keyframes laser-travel {
+  0%,
+  100% {
+    top: 4%;
+    opacity: 0.35;
+  }
+  50% {
+    top: 94%;
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(2.3);
+    opacity: 0;
+  }
+}
