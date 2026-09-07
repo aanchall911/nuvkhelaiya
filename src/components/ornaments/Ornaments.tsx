@@ -110,11 +110,15 @@ export function MandalaBackdrop({
           strokeWidth={0.4}
           className={`absolute inset-0 h-full w-full ${base} opacity-[0.105] animate-spin-slower`}
         />
-        <MandalaLine
-          petals={12}
-          strokeWidth={0.55}
-          className={`absolute inset-[19%] h-auto w-auto ${base} opacity-[0.085] animate-spin-slow`}
-        />
+        {/* wrapped in a div — an <svg> given only `inset` can fall back to its
+            intrinsic size instead of filling the box, which breaks concentricity */}
+        <div className="absolute inset-[19%]">
+          <MandalaLine
+            petals={12}
+            strokeWidth={0.55}
+            className={`h-full w-full ${base} opacity-[0.085] animate-spin-slow`}
+          />
+        </div>
       </div>
     </div>
   );

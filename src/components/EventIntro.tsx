@@ -100,65 +100,47 @@ export function EventIntro() {
             className="pointer-events-none absolute -inset-12 text-gold/20 animate-spin-slower"
           />
 
-          <motion.figure
+          {/* the khelaiyas, framed by the mandala */}
+          <motion.div
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={inView}
             transition={{ duration: 1.1, ease: EASE_OUT_SOFT }}
-            className="relative z-10 mx-auto w-full max-w-[560px]"
+            className="relative z-10 mx-auto flex aspect-square w-full max-w-[480px] items-end justify-center"
           >
-            <div className="relative border border-gold/50 p-[4px]">
-              <div className="relative border border-gold/70 p-[5px] pt-5">
-                <ToranBorder className="absolute inset-x-0 top-0 h-5 w-full text-gold" count={20} />
-                <RangoliCorner className="pointer-events-none absolute -left-px -top-px h-8 w-8 text-gold" />
-                <RangoliCorner className="pointer-events-none absolute -right-px -top-px h-8 w-8 scale-x-[-1] text-gold" />
-                <RangoliCorner className="pointer-events-none absolute -bottom-px -left-px h-8 w-8 scale-y-[-1] text-gold" />
-                <RangoliCorner className="pointer-events-none absolute -bottom-px -right-px h-8 w-8 scale-[-1] text-gold" />
+            <MotifPng
+              src={ART.motif.garbaDancer}
+              label="Khelaiyas dancing Garba in traditional chaniya choli"
+              className="aspect-[447/559] h-[86%]"
+              idle="float"
+              glow
+              duration={9}
+            />
+          </motion.div>
 
-                <div className="relative aspect-video overflow-hidden bg-plum-deep ring-1 ring-gold/30">
-                  <video
-                    src={GALLERY_FILM.src}
-                    poster={GALLERY_FILM.poster}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    aria-label="NUV Khelaiya 2025 highlights"
-                    className="h-full w-full object-cover"
-                  />
-                  <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-plum-deep/70 via-transparent to-transparent"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <figcaption className="mt-4 flex items-center justify-center gap-3 text-center">
-              <DiyaIcon className="h-4 w-4 text-saffron animate-diya-glow" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-gold">
-                Khelaiya 2025
-              </span>
-              <DiyaIcon className="h-4 w-4 text-saffron animate-diya-glow" />
-            </figcaption>
-          </motion.figure>
-
-          {/* the dancers, framing the panel */}
-          <MotifPng
-            src={ART.motif.garbaDancer}
-            className="absolute -bottom-6 -left-10 z-20 aspect-[447/559] h-40 sm:h-52 lg:-left-16 lg:h-64"
-            idle="float"
-            glow
-            duration={9}
-          />
+          {/* diyas and dandiya around the edge */}
           <MotifPng
             src={ART.motif.dandiya}
-            className="absolute -right-4 -top-8 z-20 h-20 w-20 sm:h-28 sm:w-28"
+            className="absolute -right-2 top-2 z-20 h-20 w-20 sm:h-28 sm:w-28"
             idle="sway"
             glow
             duration={6}
           />
+          <MotifPng
+            src={ART.motif.diya}
+            className="absolute -left-2 top-1/3 z-20 h-14 w-14 sm:h-16 sm:w-16"
+            idle="pulse"
+            glow
+            duration={4.4}
+          />
+
+          <div className="mt-2 flex items-center justify-center gap-3">
+            <DiyaIcon className="h-4 w-4 text-saffron animate-diya-glow" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-gold">
+              Khelaiya 2025
+            </span>
+            <DiyaIcon className="h-4 w-4 text-saffron animate-diya-glow" />
+          </div>
         </div>
       </div>
     </section>

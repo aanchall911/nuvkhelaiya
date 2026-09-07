@@ -51,7 +51,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     alt: 'Students in traditional chaniya choli and kediyu at NUV Khelaiya 2025',
     category: 'People',
     shape: 'arch',
-    caption: 'Dressed for nine nights',
+    caption: 'Dressed for the night',
   },
   {
     id: 'nk25-05',
