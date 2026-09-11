@@ -43,7 +43,7 @@ export function PassPromo({ showHeading = true }: { showHeading?: boolean } = {}
     <section
       id="passes"
       className={`relative overflow-hidden text-ivory ${
-        showHeading ? 'py-24 sm:py-28' : 'pb-24 pt-12 sm:pb-28'
+        showHeading ? 'py-14 sm:py-20' : 'pb-14 pt-8 sm:pb-20'
       }`}
       aria-label="Passes and pricing"
     >
@@ -73,7 +73,7 @@ export function PassPromo({ showHeading = true }: { showHeading?: boolean } = {}
           initial="hidden"
           whileInView="show"
           viewport={inView}
-          className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-4 ${showHeading ? 'mt-14' : ''}`}
+          className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-4 ${showHeading ? 'mt-10' : ''}`}
         >
           {PASS_TIERS.map((t) => (
             <motion.li
@@ -158,7 +158,7 @@ export function PassPromo({ showHeading = true }: { showHeading?: boolean } = {}
           initial="hidden"
           whileInView="show"
           viewport={inView}
-          className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
         >
           {STEPS.map((s) => (
             <motion.li

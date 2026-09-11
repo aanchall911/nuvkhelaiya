@@ -361,7 +361,7 @@ export function GalleryWall() {
   );
 
   return (
-    <section className="relative overflow-hidden pb-24 pt-12 sm:pb-28" aria-label="Gallery">
+    <section className="relative overflow-hidden pb-14 pt-6 sm:pb-20" aria-label="Gallery">
 
       <div className="container-editorial relative">
         {/* ===== toran strands flank the mandala, left and right ===== */}

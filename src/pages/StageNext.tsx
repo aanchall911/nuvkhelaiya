@@ -11,7 +11,7 @@ import { DiyaIcon, MandalaLine } from '@/components/ornaments/Ornaments';
  */
 export function StageNext({ title, items }: { title: string; items: string[] }) {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-28">
+    <section className="relative overflow-hidden py-14 sm:py-20">
       <MandalaLine className="pointer-events-none absolute -right-32 top-1/2 h-[360px] w-[360px] -translate-y-1/2 text-gold/20 animate-spin-slower" />
       <MotifPng
         src={ART.motif.rangoli}

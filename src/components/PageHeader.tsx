@@ -21,7 +21,7 @@ export function PageHeader({
   gujarati?: string;
 }) {
   return (
-    <header className="relative overflow-hidden pb-14 pt-32 text-center text-ivory sm:pb-16 sm:pt-40">
+    <header className="relative overflow-hidden pb-8 pt-28 text-center text-ivory sm:pb-10 sm:pt-36">
       <SparkleField count={18} />
       <ToranBorder className="absolute inset-x-0 top-0 h-6 w-full text-gold/50" count={40} />
       <MandalaBackdrop size="min(720px, 78vmin)" />

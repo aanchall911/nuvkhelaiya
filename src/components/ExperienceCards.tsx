@@ -72,7 +72,7 @@ export function ExperienceCards() {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden py-24 text-ivory sm:py-28"
+      className="relative overflow-hidden py-14 text-ivory sm:py-20"
       aria-labelledby="experience-heading"
     >
 
@@ -91,7 +91,7 @@ export function ExperienceCards() {
           initial="hidden"
           whileInView="show"
           viewport={inView}
-          className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
         >
           {ITEMS.map((item) => (
             <motion.li

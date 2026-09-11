@@ -17,7 +17,7 @@ export function InvitationBand() {
     // the negative top margin pulls this up into the hero's tail, so the
     // couplet sits close under the CTAs instead of a screen below them
     <section
-      className="relative -mt-[16vh] overflow-hidden pb-20 pt-0 sm:-mt-[18vh] sm:pb-24"
+      className="relative -mt-[18vh] overflow-hidden pb-10 pt-0 sm:-mt-[20vh] sm:pb-14"
       aria-label="Invitation"
     >
       {/* a soft mandala and a pair of diyas hold the band together */}

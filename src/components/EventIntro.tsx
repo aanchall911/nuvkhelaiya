@@ -13,7 +13,7 @@ const STATS = [
 
 export function EventIntro() {
   return (
-    <section id="intro" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="intro" className="relative overflow-hidden py-14 sm:py-20">
       {/* no section-level texture — the site-wide gradient carries it, so no
           rectangular band appears where one section meets the next */}
       <MandalaLine className="pointer-events-none absolute -left-40 top-10 h-[380px] w-[380px] text-gold/20 animate-spin-slower" />
@@ -32,7 +32,7 @@ export function EventIntro() {
         opacity={0.3}
       />
 
-      <div className="container-editorial relative grid items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-20">
+      <div className="container-editorial relative grid items-center gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
         <div>
           <Eyebrow>The Celebration</Eyebrow>
           <TextReveal
@@ -69,7 +69,7 @@ export function EventIntro() {
             initial="hidden"
             whileInView="show"
             viewport={inView}
-            className="mt-11 grid grid-cols-3 gap-4 border-y border-gold/35 py-7"
+            className="mt-8 grid grid-cols-3 gap-4 border-y border-gold/35 py-5"
           >
             {STATS.map((s) => (
               <motion.div key={s.label} variants={riseIn} className="text-center sm:text-left">
@@ -99,7 +99,7 @@ export function EventIntro() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={inView}
             transition={{ duration: 1.1, ease: EASE_OUT_SOFT }}
-            className="relative z-10 mx-auto flex aspect-square w-full max-w-[480px] items-end justify-center"
+            className="relative z-10 mx-auto flex aspect-[4/5] w-full max-w-[400px] items-end justify-center"
           >
             <MotifPng
               src={ART.motif.garbaDancer}

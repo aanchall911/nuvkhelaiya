@@ -11,10 +11,10 @@ export const TEAM_FOLDERS: TeamFolder[] = [
   { slug: 'cultural', role: 'Cultural', files: ['group-01.jpg', 'name-jeeya-desai.jpg', 'name-tanishi-mehta.jpg', 'name-vedant-khatri.jpg'] },
   { slug: 'marketing', role: 'Marketing', files: ['name-manit-mehta.jpg', 'name-sai-bhatt.jpg', 'p-01.jpg'] },
   { slug: 'content', role: 'Content', files: ['name-diksha-kulkarni.jpg', 'name-suhani-shah.jpg', 'p-01.jpg'] },
-  { slug: 'decoration', role: 'Decoration', files: ['group-01.jpg', 'name-twisha-murani.jpg', 'name-vanshi-thakkar.jpg', 'p-01.jpg'] },
+  { slug: 'decoration', role: 'Decoration', files: ['group-01.jpg', 'name-queena-khoja.jpg', 'name-twisha-murani.jpg', 'name-vanshi-thakkar.jpg'] },
   { slug: 'social-media', role: 'Social Media', files: ['name-aashvi-shah.jpg', 'name-abhay-mahato.jpg', 'name-krishva-parekh.jpg', 'p-01.jpg'] },
   { slug: 'technical', role: 'Technical', files: ['group-01.jpg', 'name-aditya-chandiramani.jpg', 'name-krishna-agrawal.jpg'] },
-  { slug: 'esports', role: 'E-Sports', files: ['group-01.jpg', 'name-aditya-kundu.jpg', 'name-krishna-agrawal.jpg', 'name-mitanshu-nair.jpg'] },
-  { slug: 'outreach', role: 'Outreach', files: ['name-darshil-acharya.jpg', 'name-krinal-prajpati.jpg', 'name-maniya-marothia.jpg', 'p-01.jpg'] },
+  { slug: 'esports', role: 'E-Sports', files: ['group-01.jpg', 'name-aditya-kundu.jpg', 'name-krishna-agrawal.jpg', 'name-mitanshu-nayak.jpg'] },
+  { slug: 'outreach', role: 'Outreach', files: ['group-01.jpg', 'name-darshil-acharya.jpg', 'name-krinal-prajapati.jpg', 'name-maniya-marothia.jpg'] },
   { slug: 'media', role: 'Media', files: ['name-priyanshu-panchal.jpg', 'name-rohit-sanjay.jpg', 'p-01.jpg'] },
 ];

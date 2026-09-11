@@ -17,7 +17,7 @@ const SLOTS = [
 
 export function Schedule() {
   return (
-    <section id="schedule" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="schedule" className="relative overflow-hidden py-14 sm:py-20">
       <MotifPng
         src={ART.motif.diyaRow}
         className="absolute right-0 top-10 h-24 w-72 opacity-40"
@@ -35,7 +35,7 @@ export function Schedule() {
           intro={`One night, ${EVENT.dateLong}. Special performances are announced on-site.`}
         />
 
-        <ol className="relative mx-auto mt-16 max-w-3xl">
+        <ol className="relative mx-auto mt-10 max-w-3xl">
           {/* the ornamental spine */}
           <motion.span
             aria-hidden="true"
@@ -52,7 +52,7 @@ export function Schedule() {
               <motion.li
                 key={s.time}
                 variants={riseIn}
-                className="group relative flex gap-6 pb-10 last:pb-0 sm:pl-0"
+                className="group relative flex gap-6 pb-7 last:pb-0 sm:pl-0"
               >
                 <span className="relative z-10 mt-1 hidden h-10 w-10 shrink-0 place-items-center rounded-full border border-gold/50 bg-plum-deep/70 backdrop-blur-sm sm:grid">
                   <DiyaIcon className="h-5 w-5 text-saffron transition-transform duration-500 group-hover:scale-110" />
