@@ -123,12 +123,12 @@ export function Hero() {
           delay={0.8}
         />
 
-        {/* ---- garba dancers, sinking as the hero plays out ---- */}
+        {/* ---- garba dancers — hidden on small phones, visible from sm up ---- */}
         <motion.div style={reduce ? still : { opacity: dancerOpacity }} className="absolute inset-0">
           <MotifPng
             src={ART.motif.garbaDancer}
             label="Garba dancer in traditional chaniya choli"
-            className="absolute bottom-0 left-0 aspect-[447/559] h-[30vh] sm:h-[42vh] lg:h-[56vh]"
+            className="absolute bottom-0 left-0 aspect-[447/559] hidden h-[34vh] sm:block sm:h-[40vh] lg:h-[54vh]"
             idle="float"
             glow
             duration={9}
@@ -136,7 +136,7 @@ export function Hero() {
           />
           <MotifPng
             src={ART.motif.garbaDancer}
-            className="absolute bottom-0 right-0 aspect-[447/559] h-[26vh] scale-x-[-1] sm:h-[36vh] lg:h-[48vh]"
+            className="absolute bottom-0 right-0 aspect-[447/559] hidden h-[28vh] scale-x-[-1] sm:block sm:h-[34vh] lg:h-[46vh]"
             idle="float"
             glow
             duration={11}
@@ -211,7 +211,7 @@ export function Hero() {
                 ? still
                 : { opacity: outroOpacity, y: outroY, position: 'absolute', left: 0, right: 0 }
             }
-            className={reduce ? 'mt-12' : 'top-[52%]'}
+            className={reduce ? 'mt-12' : 'top-[48%] sm:top-[52%]'}
           >
             <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-px overflow-hidden border border-gold/25 bg-gold/20 sm:grid-cols-3">
               {[

@@ -69,7 +69,7 @@ export function EventIntro() {
             initial="hidden"
             whileInView="show"
             viewport={inView}
-            className="mt-8 grid grid-cols-3 gap-4 border-y border-gold/35 py-5"
+            className="mt-8 grid grid-cols-3 gap-2 border-y border-gold/35 py-5 sm:gap-4"
           >
             {STATS.map((s) => (
               <motion.div key={s.label} variants={riseIn} className="text-center sm:text-left">

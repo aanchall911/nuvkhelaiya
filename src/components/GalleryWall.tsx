@@ -365,9 +365,9 @@ export function GalleryWall() {
 
       <div className="container-editorial relative">
         {/* ===== toran strands flank the mandala, left and right ===== */}
-        <div className="grid grid-cols-2 items-start gap-x-6 gap-y-12 lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:gap-x-10">
+        <div className="grid grid-cols-1 items-start gap-x-6 gap-y-12 lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:gap-x-10">
           {/* the middle stays exactly as it was */}
-          <div className="order-1 col-span-2 lg:order-2 lg:col-span-1">
+          <div className="order-1 col-span-1 lg:order-2 lg:col-span-1">
             <div className="relative mx-auto aspect-square w-full max-w-[460px]">
               <MandalaLine
                 petals={20}
@@ -398,7 +398,7 @@ export function GalleryWall() {
               items={leftStrand}
               offset={0}
               onOpen={setOpen}
-              className="order-2 lg:order-1"
+              className="order-2 w-1/2 lg:order-1 lg:w-auto"
             />
             <ToranStrand
               key="right"
@@ -406,7 +406,7 @@ export function GalleryWall() {
               items={rightStrand}
               offset={leftStrand.length}
               onOpen={setOpen}
-              className="order-3"
+              className="order-3 w-1/2 lg:w-auto"
             />
           </AnimatePresence>
         </div>

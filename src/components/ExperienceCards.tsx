@@ -91,7 +91,7 @@ export function ExperienceCards() {
           initial="hidden"
           whileInView="show"
           viewport={inView}
-          className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-10 grid gap-5 grid-cols-2 lg:grid-cols-4"
         >
           {ITEMS.map((item) => (
             <motion.li
@@ -140,7 +140,7 @@ export function ExperienceCards() {
                       {item.title}
                     </h3>
                     <p className="mt-0.5 font-gujarati text-[13px] text-gold">{item.gujarati}</p>
-                    <p className="mt-2 max-h-0 overflow-hidden text-[12.5px] leading-[1.7] text-ivory/80 opacity-0 transition-all duration-700 group-hover:max-h-24 group-hover:opacity-100">
+                    <p className="mt-2 text-[12.5px] leading-[1.7] text-ivory/80">
                       {item.copy}
                     </p>
                     <span

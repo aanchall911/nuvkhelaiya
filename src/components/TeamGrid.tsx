@@ -29,7 +29,7 @@ function LeadCard({ shot, index }: { shot: Shot; index: number }) {
       animate={{ opacity: 1, x: 0, y: 0 }}
       exit={{ opacity: 0, y: -30, scale: 0.92 }}
       transition={{ duration: 0.65, ease: EASE_OUT_SOFT, delay }}
-      className="group relative w-[clamp(100px,13vw,148px)] shrink-0"
+      className="group relative w-[clamp(120px,22vw,148px)] shrink-0"
       data-cursor="hover"
     >
       <div className="relative border border-gold/40 p-[3px] transition-colors duration-500 group-hover:border-saffron/80">
@@ -247,7 +247,7 @@ export function TeamGrid() {
               viewport={{ amount: 0.25 }}
               onMouseEnter={() => setPaused(true)}
               onMouseLeave={() => setPaused(false)}
-              className="relative mt-10 min-h-[clamp(300px,44vw,460px)]"
+              className="relative mt-10 min-h-[clamp(380px,52vw,460px)]"
             >
               <AnimatePresence mode="wait">
                 {!showTeam ? (

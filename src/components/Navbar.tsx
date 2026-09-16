@@ -81,8 +81,10 @@ export function Navbar() {
     <motion.header
       animate={{ y: hidden && !open ? '-140%' : '0%' }}
       transition={{ duration: 0.55, ease: EASE_OUT_SOFT }}
-      className={`fixed inset-x-0 top-0 z-50 transition-[padding] duration-500 ${
-        scrolled ? 'pt-2 sm:pt-4' : 'pt-5 sm:pt-8'
+      className={`fixed inset-x-0 top-0 z-50 transition-[padding,background] duration-500 ${
+        scrolled
+          ? 'pt-2 sm:pt-4'
+          : 'bg-plum-deep/70 pt-3 backdrop-blur-md sm:bg-transparent sm:pt-5 sm:pt-8 sm:backdrop-blur-none'
       }`}
     >
       <a
@@ -103,8 +105,8 @@ export function Navbar() {
           aria-label="Primary"
           className={`flex items-center justify-between gap-4 transition-all duration-500 ${
             scrolled
-              ? 'h-[64px] rounded-full border border-gold/30 bg-plum-deep/70 px-4 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.75)] backdrop-blur-xl sm:px-6'
-              : 'h-[72px] px-4 sm:px-6 lg:px-8'
+              ? 'h-[60px] rounded-full border border-gold/30 bg-plum-deep/70 px-4 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.75)] backdrop-blur-xl sm:px-6'
+              : 'h-[60px] px-4 sm:h-[72px] sm:px-6 lg:px-8'
           }`}
         >
         {/* ---- left: brand lockup ---- */}
