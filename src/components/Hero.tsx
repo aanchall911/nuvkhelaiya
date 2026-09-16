@@ -36,18 +36,21 @@ function MobileHero() {
           <span className="h-px w-8 bg-gold/70" />
         </div>
 
-        {/* title */}
+        {/* title — single line, letter-by-letter reveal */}
         <h1
           id="hero-title-mobile"
-          className="mt-5 font-display text-[clamp(2.6rem,14vw,4rem)] font-light leading-[0.94] text-ivory"
+          className="mt-5 whitespace-nowrap font-display text-[clamp(2rem,10.5vw,3.6rem)] font-light leading-[1] text-ivory"
         >
           {TITLE.map((ch, i) => (
-            <span
+            <motion.span
               key={i}
-              className={`inline-block ${ch === ' ' ? 'w-[0.22em]' : ''} ${i > 3 ? 'text-shimmer-gold' : ''}`}
+              initial={{ opacity: 0, y: 18, rotateX: -40, filter: 'blur(4px)' }}
+              animate={{ opacity: 1, y: 0, rotateX: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 + i * 0.055 }}
+              className={`inline-block will-animate ${ch === ' ' ? 'w-[0.22em]' : ''} ${i > 3 ? 'text-shimmer-gold' : ''}`}
             >
               {ch === ' ' ? '\u00A0' : ch}
-            </span>
+            </motion.span>
           ))}
         </h1>
 
@@ -68,25 +71,16 @@ function MobileHero() {
           નવરાત્રિ ઉત્સવ · ૨૪ ઓક્ટોબર ૨૦૨૬
         </p>
 
-        {/* garba vector art — the two dancers */}
-        <div className="relative mx-auto mt-4 h-[36vw] max-h-[160px] w-full">
+        {/* garba vector art — single dancer, centred */}
+        <div className="relative mx-auto mt-4 h-[34vw] max-h-[150px] w-[40vw] max-w-[170px]">
           <MotifPng
             src={ART.motif.garbaDancer}
             label="Garba dancer"
-            className="absolute bottom-0 left-0 aspect-[447/559] h-full"
+            className="h-full w-full"
             idle="float"
             glow
             duration={8}
             opacity={0.95}
-          />
-          <MotifPng
-            src={ART.motif.garbaDancer}
-            className="absolute bottom-0 right-0 aspect-[447/559] h-[84%] scale-x-[-1]"
-            idle="float"
-            glow
-            duration={10}
-            delay={0.5}
-            opacity={0.88}
           />
         </div>
 
