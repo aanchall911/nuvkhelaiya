@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { riseIn, stagger, textRevealItem } from '@/lib/motion';
@@ -16,7 +16,15 @@ const TITLE = 'NUV KHELAIYA'.split('');
 
 export function Hero() {
   const reduce = !!useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
   const runway = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: runway,
@@ -48,15 +56,18 @@ export function Hero() {
   const dancerOpacity = useTransform(p, [0, 0.55, 0.85], [1, 0.85, 0]);
   const scrollHint = useTransform(p, [0, 0.08], [1, 0]);
 
-  const still = reduce ? {} : undefined;
+  const disablePin = reduce || isMobile;
+  const still = disablePin ? {} : undefined;
 
   return (
     /* tall runway drives the pinned animation; the visible hero is sticky */
-    <div ref={runway} className={reduce ? 'relative' : 'relative h-[220vh]'}>
+    <div ref={runway} className={disablePin ? 'relative' : 'relative h-[220vh]'}>
       <section
-        className={`${
-          reduce ? 'relative' : 'sticky top-0'
-        } flex h-[100svh] items-center overflow-hidden`}
+        className={
+          disablePin
+            ? 'relative min-h-[100svh] flex flex-col justify-center overflow-hidden pt-20 pb-12'
+            : 'sticky top-0 flex h-[100svh] items-center overflow-hidden'
+        }
         aria-labelledby="hero-title"
       >
         {/* No local background wash here. The site-wide fixed gradient is the
@@ -66,7 +77,7 @@ export function Hero() {
         {/* ---- festival lighting beams ---- */}
         <motion.div
           aria-hidden="true"
-          style={reduce ? { opacity: 0.5 } : { opacity: beamOpacity, scaleX: beamSpread }}
+          style={disablePin ? { opacity: 0.5 } : { opacity: beamOpacity, scaleX: beamSpread }}
           className="absolute inset-0 origin-top overflow-hidden mix-blend-screen"
         >
           {[-38, -20, -6, 8, 22, 40].map((deg, i) => (
@@ -84,7 +95,7 @@ export function Hero() {
         <SparkleField count={34} />
 
         <motion.div
-          style={reduce ? still : { scale: mandalaScale, opacity: mandalaOpacity }}
+          style={disablePin ? still : { scale: mandalaScale, opacity: mandalaOpacity }}
           className="absolute inset-0"
         >
           <MandalaBackdrop size="min(800px, 80vmin)" />
@@ -124,7 +135,7 @@ export function Hero() {
         />
 
         {/* ---- garba dancers — hidden on small phones, visible from sm up ---- */}
-        <motion.div style={reduce ? still : { opacity: dancerOpacity }} className="absolute inset-0">
+        <motion.div style={disablePin ? still : { opacity: dancerOpacity }} className="absolute inset-0">
           <MotifPng
             src={ART.motif.garbaDancer}
             label="Garba dancer in traditional chaniya choli"
@@ -148,7 +159,7 @@ export function Hero() {
         {/* ================= content ================= */}
         <div className="container-editorial relative z-10 w-full text-center">
           {/* eyebrow + opening copy */}
-          <motion.div style={reduce ? still : { opacity: introOpacity, y: introY }}>
+          <motion.div style={disablePin ? still : { opacity: introOpacity, y: introY }}>
             <motion.div
               variants={riseIn}
               initial="hidden"
@@ -164,7 +175,7 @@ export function Hero() {
           {/* the title — letters reveal on load, then the word moves as one */}
           <motion.h1
             id="hero-title"
-            style={reduce ? still : { scale: titleScale, y: titleY }}
+            style={disablePin ? still : { scale: titleScale, y: titleY }}
             className="mt-7 origin-center font-display text-[clamp(2.9rem,11vw,8.5rem)] font-light leading-[0.94] text-ivory"
           >
             <motion.span
@@ -188,7 +199,7 @@ export function Hero() {
             </motion.span>
           </motion.h1>
 
-          <motion.div style={reduce ? still : { opacity: introOpacity, y: introY }}>
+          <motion.div style={disablePin ? still : { opacity: introOpacity, y: introY }}>
             <div className="mt-5 flex items-center justify-center gap-3">
               <DandiyaPair className="h-6 w-6 text-gold" />
               <p className="font-display text-[clamp(1.1rem,3vw,1.85rem)] font-light italic tracking-wide text-saffron">
@@ -207,11 +218,11 @@ export function Hero() {
           {/* dates, venue and CTAs arrive last */}
           <motion.div
             style={
-              reduce
+              disablePin
                 ? still
                 : { opacity: outroOpacity, y: outroY, position: 'absolute', left: 0, right: 0 }
             }
-            className={reduce ? 'mt-12' : 'top-[48%] sm:top-[52%]'}
+            className={disablePin ? 'mt-10' : 'top-[48%] sm:top-[52%]'}
           >
             <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-px overflow-hidden border border-gold/25 bg-gold/20 sm:grid-cols-3">
               {[
@@ -252,7 +263,7 @@ export function Hero() {
         </div>
 
         {/* scroll indicator */}
-        {!reduce && (
+        {!disablePin && (
           <motion.div
             aria-hidden="true"
             style={{ opacity: scrollHint }}

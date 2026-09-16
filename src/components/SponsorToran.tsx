@@ -33,7 +33,7 @@ function SponsorPlate({
 
       <div
         className={`relative grid place-items-center overflow-hidden bg-plum-deep/55 ring-1 ring-gold/25 ${
-          size === 'lg' ? 'h-[80px] w-[160px]' : 'h-[64px] w-[120px]'
+          size === 'lg' ? 'h-[90px] w-[180px]' : 'h-[70px] w-[130px]'
         }`}
       >
         {showLogo ? (
@@ -43,8 +43,8 @@ function SponsorPlate({
             loading="lazy"
             decoding="async"
             onError={() => setFailed(true)}
-            className={`object-contain mix-blend-luminosity brightness-[1.15] contrast-[1.05] ${
-              size === 'lg' ? 'h-[56px] w-[136px]' : 'h-[44px] w-[100px]'
+            className={`object-contain brightness-[1.3] contrast-[1.1] ${
+              size === 'lg' ? 'h-[70px] w-[160px]' : 'h-[54px] w-[114px]'
             }`}
           />
         ) : (

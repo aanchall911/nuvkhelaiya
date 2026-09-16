@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { EASE_OUT_SOFT, inView, riseIn, stagger } from '@/lib/motion';
-import { COMMITTEE, COMMITTEE_COUNT, PHOTO_COUNT, type Portfolio, type Shot } from '@/data/committee';
+import { EASE_OUT_SOFT, stagger } from '@/lib/motion';
+import { COMMITTEE, type Portfolio, type Shot } from '@/data/committee';
 import { MicroBrand } from '@/components/ui/Typography';
 import {
   DiyaIcon,
@@ -218,7 +218,7 @@ export function TeamGrid() {
 
   return (
     <section className="relative overflow-hidden pb-14 pt-6 sm:pb-20" aria-label="Committee members">
-      <MandalaLine className="pointer-events-none absolute -right-40 top-1/3 h-[420px] w-[420px] text-gold/12 animate-spin-slower" />
+      <MandalaLine className="pointer-events-none hidden sm:block absolute -right-40 top-1/3 h-[420px] w-[420px] text-gold/12 animate-spin-slower" />
 
       <div className="container-editorial relative">
         {reduce ? (
