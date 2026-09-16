@@ -18,8 +18,8 @@ export type Sponsor = {
  * engraved gold wordmark, so the ribbon always looks finished.
  */
 export const SPONSORS: Sponsor[] = [
-  { name: 'Kanan International', tier: 'title', wordmark: 'Kanan', url: 'https://kanan.co' },
-  { name: 'IMS', tier: 'title', wordmark: 'IMS' },
+  { name: 'Kanan International', tier: 'title', logo: '/assets/sponsors/kanan.jpg', wordmark: 'Kanan', url: 'https://kanan.co' },
+  { name: 'IMS', tier: 'title', logo: '/assets/sponsors/ims.jpg', wordmark: 'IMS' },
   { name: 'Vision and Design', tier: 'partner', wordmark: 'V&D' },
   { name: 'Chaibugs Cafe & Resto', tier: 'partner', wordmark: 'Chaibugs' },
   { name: 'KRAFTON', tier: 'partner', wordmark: 'KRAFTON' },

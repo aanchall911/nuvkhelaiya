@@ -33,22 +33,20 @@ function SponsorPlate({
 
       <div
         className={`relative grid place-items-center overflow-hidden bg-plum-deep/55 ring-1 ring-gold/25 ${
-          size === 'lg' ? 'h-[110px] w-[200px]' : 'h-[84px] w-[152px]'
+          size === 'lg' ? 'h-[80px] w-[160px]' : 'h-[64px] w-[120px]'
         }`}
       >
         {showLogo ? (
-          /* logos sit on an ivory plate so brand colours stay true, and are
-             contained so nothing is ever stretched or cropped */
-          <span className="grid h-full w-full place-items-center bg-ivory/92 p-3">
-            <img
-              src={sponsor.logo}
-              alt={sponsor.name}
-              loading="lazy"
-              decoding="async"
-              onError={() => setFailed(true)}
-              className="max-h-full max-w-full object-contain"
-            />
-          </span>
+          <img
+            src={sponsor.logo}
+            alt={sponsor.name}
+            loading="lazy"
+            decoding="async"
+            onError={() => setFailed(true)}
+            className={`object-contain mix-blend-luminosity brightness-[1.15] contrast-[1.05] ${
+              size === 'lg' ? 'h-[56px] w-[136px]' : 'h-[44px] w-[100px]'
+            }`}
+          />
         ) : (
           <span className="px-3 text-center">
             <span

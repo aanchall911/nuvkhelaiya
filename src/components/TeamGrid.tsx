@@ -29,7 +29,7 @@ function LeadCard({ shot, index }: { shot: Shot; index: number }) {
       animate={{ opacity: 1, x: 0, y: 0 }}
       exit={{ opacity: 0, y: -30, scale: 0.92 }}
       transition={{ duration: 0.65, ease: EASE_OUT_SOFT, delay }}
-      className="group relative w-[clamp(120px,22vw,148px)] shrink-0"
+      className="group relative w-[clamp(140px,24vw,200px)] shrink-0"
       data-cursor="hover"
     >
       <div className="relative border border-gold/40 p-[3px] transition-colors duration-500 group-hover:border-saffron/80">
@@ -221,23 +221,6 @@ export function TeamGrid() {
       <MandalaLine className="pointer-events-none absolute -right-40 top-1/3 h-[420px] w-[420px] text-gold/12 animate-spin-slower" />
 
       <div className="container-editorial relative">
-        {/* stats */}
-        <motion.dl
-          variants={stagger(0.08, 0.1)}
-          initial="hidden"
-          whileInView="show"
-          viewport={inView}
-          className="mx-auto grid max-w-lg grid-cols-3 gap-3"
-        >
-          {[['Teams', String(total)], ['Leads', String(COMMITTEE_COUNT)], ['Photos', String(PHOTO_COUNT)]].map(([k, v]) => (
-            <motion.div key={k} variants={riseIn}
-              className="border border-gold/25 bg-plum-deep/40 px-3 py-3 text-center backdrop-blur-sm">
-              <dd className="font-display text-lg font-light text-ivory">{v}</dd>
-              <dt className="mt-0.5 text-[8px] uppercase tracking-[0.24em] text-gold">{k}</dt>
-            </motion.div>
-          ))}
-        </motion.dl>
-
         {reduce ? (
           <StaticRoster />
         ) : (
@@ -247,7 +230,7 @@ export function TeamGrid() {
               viewport={{ amount: 0.25 }}
               onMouseEnter={() => setPaused(true)}
               onMouseLeave={() => setPaused(false)}
-              className="relative mt-10 min-h-[clamp(380px,52vw,460px)]"
+              className="relative mt-8 min-h-[clamp(380px,56vw,520px)]"
             >
               <AnimatePresence mode="wait">
                 {!showTeam ? (
