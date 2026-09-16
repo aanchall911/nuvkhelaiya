@@ -196,51 +196,75 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: EASE_OUT_SOFT }}
-            className="fixed inset-0 z-40 lg:hidden"
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[60] lg:hidden"
             aria-modal="true"
             role="dialog"
             aria-label="Navigation menu"
           >
-            {/* full-screen backdrop */}
+            {/* backdrop */}
             <div
-              className="absolute inset-0 bg-plum-deep/95 backdrop-blur-xl"
+              className="absolute inset-0 bg-plum-deep"
               onClick={() => setOpen(false)}
             />
 
-            {/* menu content — scrollable if needed */}
+            {/* panel slides down from top */}
             <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ duration: 0.38, ease: EASE_OUT_SOFT }}
-              className="absolute inset-y-0 right-0 w-full max-w-xs overflow-y-auto bg-plum-deep px-6 pb-10 pt-24 shadow-2xl"
+              initial={{ y: '-100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '-100%' }}
+              transition={{ duration: 0.4, ease: EASE_OUT_SOFT }}
+              className="absolute inset-x-0 top-0 overflow-y-auto bg-plum-deep px-6 pb-10 pt-6 shadow-2xl"
+              style={{ maxHeight: '100dvh' }}
             >
-              <ul className="divide-y divide-gold/15">
+              {/* logo + close */}
+              <div className="flex items-center justify-between pb-6 border-b border-gold/20">
+                <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+                  <img src={ART.brand.durga} alt="" aria-hidden="true" className="h-10 w-10 object-contain" />
+                  <span className="font-display text-[20px] font-bold tracking-[0.1em] text-ivory">
+                    NUV <span className="text-saffron">Khelaiya</span>
+                  </span>
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  aria-label="Close menu"
+                  className="grid h-10 w-10 place-items-center border border-gold/40 text-ivory text-xl"
+                >
+                  ×
+                </button>
+              </div>
+
+              <ul className="mt-4 divide-y divide-gold/15">
                 {LINKS.map((l, i) => (
                   <motion.li
                     key={l.to}
-                    initial={{ opacity: 0, x: 24 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.08 + i * 0.045, duration: 0.4 }}
+                    initial={{ opacity: 0, y: -12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.05 + i * 0.04, duration: 0.35 }}
                   >
                     <NavLink
                       to={l.to}
                       end={l.to === '/'}
+                      onClick={() => setOpen(false)}
                       className={({ isActive }) =>
-                        `flex min-h-[52px] items-center justify-between font-display text-xl font-bold transition-colors ${
+                        `flex min-h-[52px] items-center justify-between font-display text-xl font-bold transition-colors duration-200 ${
                           isActive && !l.to.includes('#') ? 'text-saffron' : 'text-ivory'
                         }`
                       }
                     >
                       {l.label}
-                      <span className="text-gold/60">✦</span>
+                      <span className="text-gold/50 text-base">✦</span>
                     </NavLink>
                   </motion.li>
                 ))}
               </ul>
 
-              <Link to="/passes" className="btn-primary mt-8 w-full !font-bold" onClick={() => setOpen(false)}>
+              <Link
+                to="/passes"
+                className="btn-primary mt-6 w-full !font-bold"
+                onClick={() => setOpen(false)}
+              >
                 Get Your Pass
               </Link>
             </motion.div>
