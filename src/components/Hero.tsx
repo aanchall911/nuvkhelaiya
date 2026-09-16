@@ -222,22 +222,46 @@ export function Hero() {
                 ? still
                 : { opacity: outroOpacity, y: outroY, position: 'absolute', left: 0, right: 0 }
             }
-            className={disablePin ? 'mt-10' : 'top-[48%] sm:top-[52%]'}
+            className={disablePin ? 'mt-8' : 'top-[48%] sm:top-[52%]'}
           >
-            <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-px overflow-hidden border border-gold/25 bg-gold/20 sm:grid-cols-3">
+            {/* garba dancers visible only on mobile, filling the space between copy and CTA */}
+            {isMobile && (
+              <div className="relative mx-auto mb-6 h-[38vw] max-h-[180px] w-full">
+                <MotifPng
+                  src={ART.motif.garbaDancer}
+                  label="Garba dancer"
+                  className="absolute bottom-0 left-[2%] aspect-[447/559] h-full"
+                  idle="float"
+                  glow
+                  duration={8}
+                  opacity={0.95}
+                />
+                <MotifPng
+                  src={ART.motif.garbaDancer}
+                  className="absolute bottom-0 right-[2%] aspect-[447/559] h-[86%] scale-x-[-1]"
+                  idle="float"
+                  glow
+                  duration={10}
+                  delay={0.5}
+                  opacity={0.85}
+                />
+              </div>
+            )}
+
+            <dl className="mx-auto grid max-w-2xl grid-cols-3 gap-px overflow-hidden border border-gold/25 bg-gold/20">
               {[
                 ['Date', `${EVENT.day} · ${EVENT.dateShort}`],
                 ['Time', EVENT.time],
                 ['Venue', EVENT.venue],
               ].map(([k, v]) => (
-                <div key={k} className="bg-plum-deep/60 px-5 py-4 backdrop-blur-sm">
-                  <dt className="text-[9px] uppercase tracking-[0.28em] text-gold">{k}</dt>
-                  <dd className="mt-1.5 font-display text-[15px] text-ivory">{v}</dd>
+                <div key={k} className="bg-plum-deep/60 px-2 py-3 backdrop-blur-sm sm:px-5 sm:py-4">
+                  <dt className="text-[8px] uppercase tracking-[0.2em] text-gold sm:text-[9px] sm:tracking-[0.28em]">{k}</dt>
+                  <dd className="mt-1 font-display text-[12px] leading-tight text-ivory sm:text-[15px]">{v}</dd>
                 </div>
               ))}
             </dl>
 
-            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
               <Link
                 to="/passes"
                 data-cursor-label="Register"
