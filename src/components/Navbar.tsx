@@ -193,25 +193,45 @@ export function Navbar() {
         {open && (
           <motion.div
             id="mobile-menu"
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.4, ease: EASE_OUT_SOFT }}
-            className="lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: EASE_OUT_SOFT }}
+            className="fixed inset-0 z-40 lg:hidden"
+            aria-modal="true"
+            role="dialog"
+            aria-label="Navigation menu"
           >
-            <div className="border-t border-gold/20 bg-plum-deep/97 px-5 pb-8 pt-4 backdrop-blur-xl texture-bandhani">
+            {/* full-screen backdrop */}
+            <div
+              className="absolute inset-0 bg-plum-deep/95 backdrop-blur-xl"
+              onClick={() => setOpen(false)}
+            />
+
+            {/* menu content — scrollable if needed */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.38, ease: EASE_OUT_SOFT }}
+              className="absolute inset-y-0 right-0 w-full max-w-xs overflow-y-auto bg-plum-deep px-6 pb-10 pt-24 shadow-2xl"
+            >
               <ul className="divide-y divide-gold/15">
                 {LINKS.map((l, i) => (
                   <motion.li
                     key={l.to}
-                    initial={{ opacity: 0, x: -14 }}
+                    initial={{ opacity: 0, x: 24 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 + i * 0.045, duration: 0.4 }}
+                    transition={{ delay: 0.08 + i * 0.045, duration: 0.4 }}
                   >
                     <NavLink
                       to={l.to}
                       end={l.to === '/'}
-                      className="flex min-h-[52px] items-center justify-between font-display text-xl font-bold text-ivory"
+                      className={({ isActive }) =>
+                        `flex min-h-[52px] items-center justify-between font-display text-xl font-bold transition-colors ${
+                          isActive && !l.to.includes('#') ? 'text-saffron' : 'text-ivory'
+                        }`
+                      }
                     >
                       {l.label}
                       <span className="text-gold/60">✦</span>
@@ -219,10 +239,11 @@ export function Navbar() {
                   </motion.li>
                 ))}
               </ul>
-              <Link to="/passes" className="btn-primary mt-6 w-full !font-bold">
+
+              <Link to="/passes" className="btn-primary mt-8 w-full !font-bold" onClick={() => setOpen(false)}>
                 Get Your Pass
               </Link>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
